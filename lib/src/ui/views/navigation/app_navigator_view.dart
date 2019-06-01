@@ -32,12 +32,13 @@ class AppNavigatorViewState extends State<AppNavigatorView> {
   @override
   Widget build(BuildContext context) {
     Widget content = Scaffold(
-      appBar: new AppBar(
-        // title: Text(_currentView != null ? _currentView.title : null),
-        bottom: _buildTabs(),
-      ),
+      // appBar: new AppBar(
+      //   // title: Text(_currentView != null ? _currentView.title : null),
+      //   bottom: _buildTabs(),
+      // ),
       body: _buildBody(),
       drawer: AppDrawer(this),
+      bottomNavigationBar: Container(child:_buildTabs(),),
     );
 
     if (_currentView.builder == null &&
