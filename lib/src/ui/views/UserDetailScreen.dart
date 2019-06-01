@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:thanksapp/User.dart';
+import 'package:thanksapp/src/state/AppState.dart';
 import 'package:thanksapp/src/ui/util/AppUtil.dart';
 
 class UserDetail extends StatelessWidget {
@@ -49,17 +51,23 @@ Widget _buildTopText(context) {
   return Text("Tap on the heart icon to express your gratitude");
 }
 Widget _buildLovePlusser(context) {
+  AppState state = Provider.of<AppState>(context);
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: <Widget>[
       Text(
-        "15",
+        state.getLkes(),
         style: new TextStyle(fontSize: 50.0, fontWeight: FontWeight.w500,),
       ),
-      Container(
-          width: 100,
-          height: 100,
-          child: Image.asset('assets/icons/appIcon.png'))
+      InkWell(
+            onTap:(){
+              state.incrementLikes();
+            },
+              child: Container(
+            width: 100,
+            height: 100,
+            child: Image.asset('assets/icons/appIcon.png')),
+      )
     ],
   );
 }

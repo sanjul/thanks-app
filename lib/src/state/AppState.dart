@@ -8,6 +8,7 @@ class AppState with ChangeNotifier {
 
   static const PREF_IS_DARK_MODE_ENABLED = "isDarkModeEnabled";
   SharedPreferences _prefs;
+  int _likes = 10;
   
   AppState(SharedPreferences prefs, Auth auth)  {
     _prefs = prefs;
@@ -27,6 +28,15 @@ class AppState with ChangeNotifier {
       _isDarkModeEnabled = _prefs.getBool(PREF_IS_DARK_MODE_ENABLED) ?? false;
     }
     return _isDarkModeEnabled;
+  }
+
+  void incrementLikes(){
+    _likes++;
+    notifyListeners();
+  }
+
+  String getLkes(){
+    return _likes.toString();
   }
 
   Auth get auth{

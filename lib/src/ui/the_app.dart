@@ -12,6 +12,7 @@ class _TheAppState extends State<TheApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: LandingView(),
       theme: ThemeData(
         primarySwatch: Colors.purple,
