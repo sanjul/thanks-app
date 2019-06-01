@@ -38,7 +38,9 @@ class AppNavigatorViewState extends State<AppNavigatorView> {
       // ),
       body: _buildBody(),
       drawer: AppDrawer(this),
-      bottomNavigationBar: Container(child:_buildTabs(),),
+      bottomNavigationBar: Container(
+        color: Colors.red,
+        child:_buildTabs(),),
     );
 
     if (_currentView.builder == null &&
