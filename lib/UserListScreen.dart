@@ -4,7 +4,6 @@ import 'User.dart';
 import 'API.dart';
 import 'UserDetailScreen.dart';
 
-
 class UserList extends StatefulWidget {
   UserList({Key key, this.title}) : super(key: key);
   final String title;
@@ -69,6 +68,7 @@ class _UserListState extends State<UserList> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.all(20.0),
       child: Column(
         children: <Widget>[
           Padding(
