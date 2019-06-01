@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:thanksapp/src/model/user.dart';
+import 'src/model/auth.dart';
+
+// import 'src/model/auth.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,13 +15,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(
+        title: 'ThanksApp',
+        auth: new Auth(),
+        ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key key, this.title, this.auth}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -29,24 +36,13 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
+  final BaseAuth auth;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    String userId = "";
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -82,21 +80,26 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+           RaisedButton (
+             child: Text("Sign up with google"),
+             onPressed: () async {
+
+              print("LOL!");
+              bool isDone = await widget.auth.newUserFields("hemmycodes@gmail.com");
+               
+              // bool isDone = await widget.auth.updateUserFields("hemmycodes@gmail.com", new userFields(
+              //   {
+              //     "thanks": 0,
+              //     "country": "Asia"
+              //   }
+              // ));
+              print('New data: $isDone');
+             },
+           )
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
 }
