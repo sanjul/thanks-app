@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:thanksapp/User.dart';
 import 'dart:convert';
-import 'User.dart';
-import 'API.dart';
+import '../../../API.dart';
 import 'UserDetailScreen.dart';
 
 class UserList extends StatefulWidget {

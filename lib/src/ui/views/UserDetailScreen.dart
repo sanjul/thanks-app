@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'User.dart';
+import 'package:thanksapp/User.dart';
 
 class UserDetail extends StatelessWidget {
   UserDetail(this.user);

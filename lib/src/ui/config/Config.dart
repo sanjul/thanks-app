@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:thanksapp/src/ui/views/UserListScreen.dart';
 import 'package:thanksapp/src/ui/views/home_view.dart';
 import 'package:thanksapp/src/ui/views/navigation/navigatable.dart';
-import 'package:thanksapp/UserListScreen.dart';
+
 
 class Config {
   /// Navigatables.
