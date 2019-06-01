@@ -37,13 +37,13 @@ class LandingViewState extends State<LandingView>
     _logoAnimation.addStatusListener((status) async {
 
       Widget page;
-      var user = await _state.auth.getCurrentUser();
-      if ( user != null){
-        print(user);
-        page = AppNavigatorView(Config.navigatables);
-      } else {
-        page = LoginSignUpPage();
-      }
+      // var user = await _state.auth.getCurrentUser();
+      // if ( user != null){
+      //   print(user);
+      //   page = AppNavigatorView(Config.navigatables);
+      // } else {
+      //   page = LoginSignUpPage();
+      // }
 
       if (status == AnimationStatus.completed) {
         appUtil.gotoPage(
