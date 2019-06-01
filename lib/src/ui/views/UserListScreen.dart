@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:thanksapp/User.dart';
+import 'package:thanksapp/src/ui/util/AppUtil.dart';
 import 'dart:convert';
 import '../../../API.dart';
 import 'UserDetailScreen.dart';
@@ -59,10 +60,11 @@ class _UserListState extends State<UserList> {
   }
 
   void onClickUser(User user) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => UserDetail(user)),
-    );
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(builder: (context) => UserDetail(user)),
+    // );
+    appUtil.gotoPage(context, UserDetail(user));
   }
 
   @override
