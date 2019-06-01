@@ -17,7 +17,7 @@ class Config {
           ),
           Navigatable(
             // title: "Time Line",
-            icon: Icons.view_list,
+            icon: Icons.search,
             builder: () => UserList(),
           )
         ]),
