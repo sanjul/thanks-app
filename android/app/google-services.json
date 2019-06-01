@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "869672655436",
+    "firebase_url": "https://thanksapp-2babb.firebaseio.com",
+    "project_id": "thanksapp-2babb",
+    "storage_bucket": "thanksapp-2babb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869672655436:android:45fa4b2fc65deeb9",
+        "android_client_info": {
+          "package_name": "com.example.thanksapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869672655436-jql40avrn7kp3rrjl1d5ko6muni39svv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.thanksapp",
+            "certificate_hash": "bf88d2356119985573317b2f12df59e48f6cf7c2"
+          }
+        },
+        {
+          "client_id": "869672655436-uj56qtiah6591c0hmahvl0min81rm719.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp_Z7IH0i0mKVSV7cielMNR4Yt2kl5tHw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869672655436-uj56qtiah6591c0hmahvl0min81rm719.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

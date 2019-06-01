@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:thanksapp/src/model/auth.dart';
+import 'package:thanksapp/src/state/AppState.dart';
 import 'package:thanksapp/src/ui/config/Config.dart';
 import 'package:thanksapp/src/ui/util/AppUtil.dart';
+import 'package:thanksapp/src/ui/views/sign_up_view.dart';
 import 'package:thanksapp/src/ui/widgets/logo.dart';
 import 'navigation/app_navigator_view.dart';
 
@@ -16,6 +20,7 @@ class LandingViewState extends State<LandingView>
     with SingleTickerProviderStateMixin {
   Animation<double> _logoAnimation;
   AnimationController _logoAnimationController;
+  AppState _state;
 
   final _opacityTween =  Tween<double>(begin: 0.1, end: 1.0);
 
@@ -29,11 +34,21 @@ class LandingViewState extends State<LandingView>
     _logoAnimationController.addListener(() => this.setState(() {}));
     _logoAnimationController.forward();
 
-    _logoAnimation.addStatusListener((status) {
+    _logoAnimation.addStatusListener((status) async {
+
+      Widget page;
+      var user = await _state.auth.getCurrentUser();
+      if ( user != null){
+        print(user);
+        page = AppNavigatorView(Config.navigatables);
+      } else {
+        page = LoginSignUpPage();
+      }
+
       if (status == AnimationStatus.completed) {
         appUtil.gotoPage(
           context,
-           AppNavigatorView(Config.navigatables),
+           page,
         );
       }
     });
@@ -47,6 +62,8 @@ class LandingViewState extends State<LandingView>
 
   @override
   Widget build(BuildContext context) {
+    AppState state = Provider.of<AppState>(context);
+    
     return  Material(
       color: Colors.black87,
       child:  Column(
