@@ -62,7 +62,7 @@ class LandingViewState extends State<LandingView>
 
   @override
   Widget build(BuildContext context) {
-    AppState state = Provider.of<AppState>(context);
+     _state = Provider.of<AppState>(context);
     
     return  Material(
       color: Colors.black87,
