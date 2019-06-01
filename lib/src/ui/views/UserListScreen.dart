@@ -64,7 +64,7 @@ class _UserListState extends State<UserList> {
     //   context,
     //   MaterialPageRoute(builder: (context) => UserDetail(user)),
     // );
-    appUtil.gotoPage(context, UserDetail(user));
+    appUtil.gotoPage(context, UserDetail(user), true);
   }
 
   @override
