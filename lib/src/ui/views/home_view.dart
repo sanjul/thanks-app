@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thanksapp/src/state/HomeState.dart';
+import 'package:thanksapp/src/ui/views/task_row.dart';
+
+import '../../task.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -37,7 +40,9 @@ class HomeViewState extends State<HomeView> {
         body: new Stack(
           children: <Widget>[
             _buildIamge(),
-          _buildProfileRow()],
+            _buildProfileRow(),
+            _buildBottomPart()
+          ],
         ),
       );
     } else {
@@ -124,6 +129,78 @@ class HomeViewState extends State<HomeView> {
                 ),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBottomPart() {
+    return new Padding(
+      padding: new EdgeInsets.only(top: _imageHeight),
+      child: new Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          _buildMyTasksHeader(),
+          _buildTasksList(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTasksList() {
+    List<Task> tasks = [
+      new Task(
+          name: "Catch up with Brian",
+          category: "Mobile Project",
+          time: "5pm",
+          color: Colors.orange,
+          completed: false),
+      new Task(
+          name: "Make new icons",
+          category: "Web App",
+          time: "3pm",
+          color: Colors.cyan,
+          completed: true),
+      new Task(
+          name: "Design explorations",
+          category: "Company Website",
+          time: "2pm",
+          color: Colors.pink,
+          completed: false),
+      new Task(
+          name: "Lunch with Mary",
+          category: "Grill House",
+          time: "12pm",
+          color: Colors.cyan,
+          completed: true),
+      new Task(
+          name: "Teem Meeting",
+          category: "Hangouts",
+          time: "10am",
+          color: Colors.cyan,
+          completed: true),
+    ];
+    return new Expanded(
+      child: new ListView(
+        children: tasks.map((task) => new TaskRow(task: task)).toList(),
+      ),
+    );
+  }
+
+  Widget _buildMyTasksHeader() {
+    return new Padding(
+      padding: new EdgeInsets.only(left: 64.0),
+      child: new Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          new Text(
+            'My Tasks',
+            style: new TextStyle(fontSize: 34.0),
+          ),
+          new Text(
+            'FEBRUARY 8, 2015',
+            style: new TextStyle(color: Colors.grey, fontSize: 12.0),
           ),
         ],
       ),
